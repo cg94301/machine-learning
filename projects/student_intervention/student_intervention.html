@@ -236,8 +236,7 @@ div#notebook {
 <span class="k">print</span> <span class="s2">&quot;Student data read successfully!&quot;</span>
 <span class="c1"># Note: The last column &#39;passed&#39; is the target/label, all other are feature columns</span>
 
-<span class="c1">#seed = 1234 # pick global seed for reproducability</span>
-<span class="n">seed</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">1234</span> <span class="c1"># pick global seed for reproducability</span>
 </pre></div>
 
 </div>
@@ -287,7 +286,7 @@ div#notebook {
 <span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;passed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">n_failed</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;passed&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Number of students who passed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span>
 <span class="k">print</span> <span class="s2">&quot;Number of students who failed: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_failed</span><span class="p">)</span>
@@ -309,7 +308,7 @@ div#notebook {
 Number of students who passed: 265
 Number of students who failed: 130
 Number of features: 30
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -482,6 +481,7 @@ Feature values:-
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">cross_validation</span>
 <span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">cross_validation</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span><span class="n">y_all</span><span class="p">,</span>
                                                                   <span class="n">train_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+                                                                  <span class="n">stratify</span> <span class="o">=</span> <span class="n">y_all</span><span class="p">,</span>
                                                                   <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="s2">&quot;Training set: {} samples&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -534,11 +534,11 @@ Test set: 95 samples
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h3 id="My-choices">My choices<a class="anchor-link" href="#My-choices">&#182;</a></h3><ol>
-<li>Decision Tree </li>
-<li>Support Vector Machines</li>
-<li>Naive Bayes</li>
+<li>Decision Tree (DT)</li>
+<li>Support Vector Machines (SVM)</li>
+<li>Naive Bayes (NB)</li>
 </ol>
-<p>Ensemble method Random Forests is added to see if it might improve on Decision Tree results.</p>
+<p>Ensemble method Random Forests (RF) is added to see if it might improve on Decision Tree results.</p>
 <h3 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">&#182;</a></h3><p>Time Complexity:</p>
 <blockquote><p>O(F N log(N))</p>
 </blockquote>
@@ -547,6 +547,8 @@ Test set: 95 samples
 </blockquote>
 <p>N = number of training examples,
 F = number of features</p>
+<p>General Applications**:</p>
+<p>Decision tree learning is a method commonly used in data mining.</p>
 <p>Some advantages of decision trees are*:</p>
 <ul>
 <li>Simple to understand and to interpret. Trees can be visualised.</li>
@@ -621,6 +623,14 @@ F = number of features</p>
 </blockquote>
 <p>N = number of training examples,
 F = number of features</p>
+<p>General Applications**:</p>
+<p>SVMs can be used to solve various real world problems of Uncertainty in Knowledge-Based Systems, e.g.:</p>
+<ul>
+<li>SVMs are helpful in text and hypertext categorization, as their application can significantly reduce the need for labeled training instances.</li>
+<li>Classification of images can also be performed using SVMs.</li>
+<li>Hand-written characters can be recognized using SVM.</li>
+<li>The SVM algorithm has been widely applied in the biological and other sciences, e.g. They have been used to classify proteins with up to 90% of the compounds classified correctly.</li>
+</ul>
 <p>Some advantages of support vector machines are*:</p>
 <ul>
 <li>Effective in high dimensional spaces.</li>
@@ -686,6 +696,8 @@ F = number of features</p>
 </blockquote>
 <p>N = number of training examples,
 F = number of features</p>
+<p>General Applications**:</p>
+<p>Remains a popular (baseline) method for text categorization, the problem of judging documents as belonging to one category or the other (such as spam or legitimate, sports or politics, etc.) with word frequencies as the features. With appropriate preprocessing, it is competitive in this domain with more advanced methods including support vector machines.It also finds application in automatic medical diagnosis.</p>
 <p>Some advantages of naive bayes include*:</p>
 <ul>
 <li>In spite of their apparently over-simplified assumptions, naive Bayes classifiers have worked quite well in many real-world situations, famously document classification and spam filtering. They require a small amount of training data to estimate the necessary parameters. (For theoretical reasons why naive Bayes works well, and on which types of data it does, see the references below.)</li>
@@ -739,8 +751,7 @@ F = number of features</p>
 </tr>
 </tbody>
 </table>
-<h3 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h3><p>Random Forests are an ensemble of Decision Trees. The goal of ensemble methods is to combine the predictions of several base estimators built with a given learning algorithm in order to improve generalizability / robustness over a single estimator.</p>
-<p>Time Complexity:</p>
+<h3 id="Random-Forest">Random Forest<a class="anchor-link" href="#Random-Forest">&#182;</a></h3><p>Time Complexity:</p>
 <blockquote><p>O(M sqrt(F) N logN)</p>
 </blockquote>
 <p>Space Complexity:</p>
@@ -750,6 +761,8 @@ F = number of features</p>
 N = Number of training samples,
 F = Number of features,
 and assuming best pratice that max_features = sqrt(F)</p>
+<p>General Applications:</p>
+<p>Random Forests are an ensemble of Decision Trees. The goal of ensemble methods is to combine the predictions of several base estimators built with a given learning algorithm in order to improve generalizability / robustness over a single estimator.</p>
 <p>Tradeoffs*:</p>
 <p>In random forests, each tree in the ensemble is built from a sample drawn with replacement (i.e., a bootstrap sample) from the training set. In addition, when splitting a node during the construction of the tree, the split that is chosen is no longer the best split among all features. Instead, the split that is picked is the best split among a random subset of the features. As a result of this randomness, the bias of the forest usually slightly increases (with respect to the bias of a single non-random tree) but, due to averaging, its variance also decreases, usually more than compensating for the increase in bias, hence yielding an overall better model.</p>
 <p>Results:</p>
@@ -794,7 +807,8 @@ and assuming best pratice that max_features = sqrt(F)</p>
 </tr>
 </tbody>
 </table>
-<p>*source scikit-learn</p>
+<p>* source scikit-learn</p>
+<p>** source Wikipedia</p>
 
 </div>
 </div>
@@ -818,7 +832,10 @@ and assuming best pratice that max_features = sqrt(F)</p>
 
 <span class="c1"># TODO: Choose a model, import it and instantiate an object</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span> 
-<span class="n">clf_dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<span class="c1"># Started out with unrestricted max_depth, which resulted in depth=14 and F1 on train set 1.0</span>
+<span class="c1"># That means we were overfitting on the training set</span>
+<span class="c1"># Adjusted max_depth to avoid overfitting</span>
+<span class="n">clf_dt</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 
 <span class="c1"># Fit model to training data</span>
 <span class="n">train_classifier</span><span class="p">(</span><span class="n">clf_dt</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>  <span class="c1"># note: using entire training set here</span>
@@ -840,8 +857,8 @@ and assuming best pratice that max_features = sqrt(F)</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training DecisionTreeClassifier...
 Done!
-Training time (usec): 2278
-Depth of decision tree: 14
+Training time (usec): 1688
+Depth of decision tree: 7
 </pre>
 </div>
 </div>
@@ -883,8 +900,8 @@ Depth of decision tree: 14
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 608
-F1 score for training set: 1.0
+Prediction time (usec): 440
+F1 score for training set: 0.902050113895
 </pre>
 </div>
 </div>
@@ -914,8 +931,8 @@ F1 score for training set: 1.0
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 450
-F1 score for test set: 0.716666666667
+Prediction time (usec): 520
+F1 score for test set: 0.783216783217
 </pre>
 </div>
 </div>
@@ -963,43 +980,43 @@ Training set size: 300
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 2167
+Training time (usec): 1830
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 279
-F1 score for training set: 1.0
+Prediction time (usec): 319
+F1 score for training set: 0.902050113895
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 153
-F1 score for test set: 0.716666666667
+Prediction time (usec): 148
+F1 score for test set: 0.783216783217
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 1155
+Training time (usec): 900
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 174
-F1 score for training set: 1.0
+Prediction time (usec): 170
+F1 score for training set: 0.931034482759
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 146
-F1 score for test set: 0.713178294574
+Prediction time (usec): 149
+F1 score for test set: 0.751879699248
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 645
+Training time (usec): 620
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 146
-F1 score for training set: 1.0
+Prediction time (usec): 148
+F1 score for training set: 0.993630573248
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 145
-F1 score for test set: 0.694214876033
+Prediction time (usec): 144
+F1 score for test set: 0.753623188406
 </pre>
 </div>
 </div>
@@ -1039,43 +1056,43 @@ Training set size: 300
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 5807
+Training time (usec): 6306
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 3953
-F1 score for training set: 0.869198312236
+Prediction time (usec): 4020
+F1 score for training set: 0.862660944206
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 1475
-F1 score for test set: 0.758620689655
+Prediction time (usec): 1403
+F1 score for test set: 0.818791946309
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 2878
+Training time (usec): 2812
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 2109
-F1 score for training set: 0.869281045752
+Prediction time (usec): 2034
+F1 score for training set: 0.873846153846
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 1023
-F1 score for test set: 0.775510204082
+Prediction time (usec): 1005
+F1 score for test set: 0.805194805195
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 937
+Training time (usec): 917
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 639
-F1 score for training set: 0.859060402685
+Prediction time (usec): 569
+F1 score for training set: 0.906976744186
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 598
-F1 score for test set: 0.783783783784
+Prediction time (usec): 549
+F1 score for test set: 0.79746835443
 </pre>
 </div>
 </div>
@@ -1115,43 +1132,43 @@ Training set size: 300
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 1448
+Training time (usec): 1621
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 665
-F1 score for training set: 0.808823529412
+Prediction time (usec): 386
+F1 score for training set: 0.811188811189
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 285
-F1 score for test set: 0.75
+Prediction time (usec): 277
+F1 score for test set: 0.773722627737
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 647
+Training time (usec): 630
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 302
-F1 score for training set: 0.832061068702
+Prediction time (usec): 296
+F1 score for training set: 0.822299651568
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 238
-F1 score for test set: 0.713178294574
+Prediction time (usec): 237
+F1 score for test set: 0.743801652893
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 550
+Training time (usec): 549
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 239
-F1 score for training set: 0.854961832061
+Prediction time (usec): 242
+F1 score for training set: 0.853333333333
 Predicting labels using GaussianNB...
 Done!
 Prediction time (usec): 241
-F1 score for test set: 0.748091603053
+F1 score for test set: 0.765625
 </pre>
 </div>
 </div>
@@ -1191,43 +1208,43 @@ Training set size: 300
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 26714
+Training time (usec): 24731
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 1115
-F1 score for training set: 0.997578692494
+Prediction time (usec): 1183
+F1 score for training set: 0.992555831266
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 990
-F1 score for test set: 0.734375
+Prediction time (usec): 993
+F1 score for test set: 0.75
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 19998
+Training time (usec): 20347
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 1025
-F1 score for training set: 1.0
+Prediction time (usec): 993
+F1 score for training set: 0.99649122807
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 749
-F1 score for test set: 0.776119402985
+Prediction time (usec): 830
+F1 score for test set: 0.714285714286
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 19270
+Training time (usec): 21314
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 852
-F1 score for training set: 0.984126984127
+Prediction time (usec): 1042
+F1 score for training set: 1.0
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 726
-F1 score for test set: 0.71186440678
+Prediction time (usec): 801
+F1 score for test set: 0.778523489933
 </pre>
 </div>
 </div>
@@ -1257,17 +1274,50 @@ F1 score for test set: 0.71186440678
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h4 id="What-model-to-choose:">What model to choose:<a class="anchor-link" href="#What-model-to-choose:">&#182;</a></h4><p>In terms of accuracy the results rank like this after grid search (F1 score):</p>
-<p>Random Forest (0.8112) &gt; Decision Tree (0.7914) &gt; SVM (0.7862).</p>
-<p>For comparison NB F1 is 0.75 (no grid search).</p>
-<p>Given accuracy results I'd drop NB. Given that SVM is higher in compuational complexity compared to Decision Tree (see results section 4), I'd drop SVM. Another drawback of SVMs is their black box nature. That means results cannot be easily interpreted.</p>
-<p>That leaves Decision Trees and Random Forests. Random Forests are about 2% more accurate. But they do have higher computational complexity M * sqrt(F) &gt; F. They also make interpretation of results a bit harder.</p>
-<p>In summary, I'd choose Decision Trees. They are fast, easy to interpret and sufficiently accurate.</p>
-<h4 id="How-it-works:">How it works:<a class="anchor-link" href="#How-it-works:">&#182;</a></h4><p>A tree can be learned by splitting the source set into subsets based on a feature value test, e.g information gain. This process is repeated on each derived subset in a recursive manner. The recursion is completed when the subset at a node has all the same value of the target variable, or when splitting no longer adds value to the predictions. This process of top-down induction of decision trees is an example of a greedy algorithm, and it is by far the most common strategy for learning decision trees from data.*</p>
-<p>*wikipedia, mostly</p>
-<h4 id="Tuning-Results:">Tuning Results:<a class="anchor-link" href="#Tuning-Results:">&#182;</a></h4><p>The Decision Tree grid search returned these as best parameters to choose:</p>
-<p>Best params: {'criterion': 'entropy', 'max_depth': 4}</p>
-<p>With a final F1 score of 0.7914.</p>
+<h4 id="What-model-to-choose:">What model to choose:<a class="anchor-link" href="#What-model-to-choose:">&#182;</a></h4><p>Here is a summary of the key metrics of the selected models from the previous section:</p>
+<table>
+<thead><tr>
+<th style="text-align:right">Model</th>
+<th style="text-align:right">DT</th>
+<th style="text-align:right">NB</th>
+<th style="text-align:right">SVM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">Training Time (usec)</td>
+<td style="text-align:right">1686</td>
+<td style="text-align:right">1160</td>
+<td style="text-align:right">5746</td>
+</tr>
+<tr>
+<td style="text-align:right">Prediction Time Test (usec)</td>
+<td style="text-align:right">143</td>
+<td style="text-align:right">374</td>
+<td style="text-align:right">2364</td>
+</tr>
+<tr>
+<td style="text-align:right">F1 score test</td>
+<td style="text-align:right">0.7166</td>
+<td style="text-align:right">0.75</td>
+<td style="text-align:right">0.7586</td>
+</tr>
+</tbody>
+</table>
+<p>Comparing SVM with NB. There seems to be no significant gain in terms of F1 for using SVM over NB. However, the computational cost of SVM is about ~5x higher. Therefore I'd drop the SVM model.</p>
+<p>Comparing NB with DT. The computational costs are not that far apart. We don't know how many predictions will be made before the model is re-trained. If there's many, then the lower prediction time of the DT would be an advantage. In terms of F1 score the NB model is better, by about 3%. However, this is before grid search optimization. There are no parameters to optimize for NB. So this is the final F1 score for NB. For the DT model grid search should achieve better results. That is because DT models tend to overfit. Therefore I'm choosing DT with the expectation that grid search will at least achieve an F1 score on par with NB, if not better.</p>
+<p>Another reason supporting the choice of DT is its white box nature. This will allow for easy interpretation of results.</p>
+<h4 id="How-it-works:">How it works:<a class="anchor-link" href="#How-it-works:">&#182;</a></h4><p>To build a decision tree, ask a question about one of the features (attributes) and split the sample space according to the answer. For instance, one could ask about the feature failures. This feature describes the number of past class failures of a student. One could make the decision to split all students whether they did or did not have any past failures. That means the sample space (students) would be divided into all samples (students) that have 0 past failures and the rest. Then you could look at the group with 0 past failures and ask another question to further split that sample space. You can do this until there are no more opportunities to split the space even further, or when splitting no longer adds value to the predictions. Doing this, following a path and splitting further, will result in a tree structure. Hence the name decision tree.</p>
+<p>An important question here is on what attribute and value of that attribute should you split to achieve the best result. The answer is that you want to split on an attribute/value pair that splits the space in half, or as close to half as you can get. That means an algorithm would look at different attribute/value pairs to make the best possible decision at each node of the tree.</p>
+<p>In tech speak*:</p>
+<blockquote><p>A tree can be learned by splitting the source set into subsets based on a feature value test, e.g information gain. This process is repeated on each derived subset in a recursive manner. The recursion is completed when the subset at a node has all the same value of the target variable, or when splitting no longer adds value to the predictions. This process of top-down induction of decision trees is an example of a greedy algorithm, and it is by far the most common strategy for learning decision trees from data.*</p>
+</blockquote>
+<p>* mostly Wikipedia</p>
+<h4 id="Tuning-Results:">Tuning Results:<a class="anchor-link" href="#Tuning-Results:">&#182;</a></h4><p>Final results from DT grid search:</p>
+<p><em>F1 score for test set: 0.8143</em></p>
+<p><em>Best params: {'criterion': 'entropy', 'max_depth': 5}</em></p>
+<p>The F1 score has improved significantly and surpassed the NB score from above. This supports the choice of DT. The grid search has reduced the depth of the tree, compared to the depth of the original tree, supporting the assumption that the original DT was still somewhat overfitting.</p>
+<p>NOTE: Grid search was also done for SVC and Random Forest out of curiosity. Results don't contradict the author's choice.</p>
 
 </div>
 </div>
@@ -1279,10 +1329,14 @@ F1 score for test set: 0.71186440678
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Fine-tune your model and report the best F1 score</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">grid_search</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
+
+<span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="s2">&quot;Grid search SVC ...&quot;</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="s1">&#39;rbf&#39;</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="mf">0.001</span><span class="p">]}</span>
-<span class="n">clf_svc_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(),</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">clf_svc_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(),</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">clf_svc_grd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Predict on test data</span>
@@ -1291,8 +1345,9 @@ F1 score for test set: 0.71186440678
 <span class="k">print</span>
 
 <span class="k">print</span> <span class="s2">&quot;Grid search Decision Tree ...&quot;</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="s1">&#39;criterion&#39;</span><span class="p">:(</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">)}</span>
-<span class="n">clf_dt_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">),</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="s1">&#39;criterion&#39;</span><span class="p">:(</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">)}</span>
+<span class="n">clf_dt_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">),</span>
+                                      <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">clf_dt_grd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Predict on test data</span>
@@ -1303,7 +1358,8 @@ F1 score for test set: 0.71186440678
 <span class="c1"># best practice choose max_features = sqrt(n_features)</span>
 <span class="k">print</span> <span class="s2">&quot;Grid search Random Forest ...&quot;</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:(</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span><span class="s1">&#39;max_features&#39;</span><span class="p">:(</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">)}</span>
-<span class="n">clf_rf_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">),</span><span class="n">parameters</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">clf_rf_grd</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">seed</span><span class="p">),</span>
+                                      <span class="n">parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">clf_rf_grd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Predict on test data</span>
@@ -1324,23 +1380,23 @@ F1 score for test set: 0.71186440678
 <pre>Grid search SVC ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 1271
-F1 score for test set: 0.786206896552
+Prediction time (usec): 1415
+F1 score for test set: 0.818791946309
 Best params: {&apos;kernel&apos;: &apos;rbf&apos;, &apos;C&apos;: 10, &apos;gamma&apos;: 0.001}
 
 Grid search Decision Tree ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 295
-F1 score for test set: 0.791366906475
-Best params: {&apos;criterion&apos;: &apos;entropy&apos;, &apos;max_depth&apos;: 4}
+Prediction time (usec): 212
+F1 score for test set: 0.814285714286
+Best params: {&apos;criterion&apos;: &apos;entropy&apos;, &apos;max_depth&apos;: 5}
 
 Grid search Random Forest ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 1136
-F1 score for test set: 0.811188811189
-Best params: {&apos;max_features&apos;: 8, &apos;n_estimators&apos;: 11}
+Prediction time (usec): 1057
+F1 score for test set: 0.755244755245
+Best params: {&apos;max_features&apos;: 5, &apos;n_estimators&apos;: 11}
 </pre>
 </div>
 </div>
