@@ -213,7 +213,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -228,7 +228,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Read student data</span>
@@ -278,7 +278,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Compute desired values - replace each &#39;?&#39; with an appropriate expression/function call</span>
@@ -332,7 +332,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature (X) and target (y) columns</span>
@@ -410,7 +410,7 @@ Feature values:-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Preprocess feature columns</span>
@@ -468,7 +468,7 @@ Feature values:-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># First, decide how many training vs test samples you want</span>
@@ -815,7 +815,7 @@ and assuming best pratice that max_features = sqrt(F)</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Train a model</span>
@@ -857,7 +857,7 @@ and assuming best pratice that max_features = sqrt(F)</p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training DecisionTreeClassifier...
 Done!
-Training time (usec): 1688
+Training time (usec): 1972
 Depth of decision tree: 7
 </pre>
 </div>
@@ -869,7 +869,7 @@ Depth of decision tree: 7
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Predict on training set and compute F1 score</span>
@@ -900,7 +900,7 @@ Depth of decision tree: 7
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 440
+Prediction time (usec): 756
 F1 score for training set: 0.902050113895
 </pre>
 </div>
@@ -912,7 +912,7 @@ F1 score for training set: 0.902050113895
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Predict on test data</span>
@@ -931,7 +931,7 @@ F1 score for training set: 0.902050113895
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 520
+Prediction time (usec): 746
 F1 score for test set: 0.783216783217
 </pre>
 </div>
@@ -943,7 +943,7 @@ F1 score for test set: 0.783216783217
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Train and predict using different training set sizes</span>
@@ -980,42 +980,42 @@ Training set size: 300
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 1830
+Training time (usec): 1607
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 319
+Prediction time (usec): 389
 F1 score for training set: 0.902050113895
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 148
+Prediction time (usec): 162
 F1 score for test set: 0.783216783217
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 900
+Training time (usec): 935
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 170
+Prediction time (usec): 169
 F1 score for training set: 0.931034482759
 Predicting labels using DecisionTreeClassifier...
 Done!
-Prediction time (usec): 149
+Prediction time (usec): 154
 F1 score for test set: 0.751879699248
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training DecisionTreeClassifier...
 Done!
-Training time (usec): 620
-Predicting labels using DecisionTreeClassifier...
-Done!
-Prediction time (usec): 148
-F1 score for training set: 0.993630573248
+Training time (usec): 617
 Predicting labels using DecisionTreeClassifier...
 Done!
 Prediction time (usec): 144
+F1 score for training set: 0.993630573248
+Predicting labels using DecisionTreeClassifier...
+Done!
+Prediction time (usec): 143
 F1 score for test set: 0.753623188406
 </pre>
 </div>
@@ -1027,7 +1027,7 @@ F1 score for test set: 0.753623188406
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Train and predict using two other models</span>
@@ -1056,42 +1056,42 @@ Training set size: 300
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 6306
+Training time (usec): 7114
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 4020
+Prediction time (usec): 5162
 F1 score for training set: 0.862660944206
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 1403
+Prediction time (usec): 1448
 F1 score for test set: 0.818791946309
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 2812
+Training time (usec): 2785
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 2034
+Prediction time (usec): 2004
 F1 score for training set: 0.873846153846
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 1005
+Prediction time (usec): 1035
 F1 score for test set: 0.805194805195
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training SVC...
 Done!
-Training time (usec): 917
+Training time (usec): 1117
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 569
+Prediction time (usec): 631
 F1 score for training set: 0.906976744186
 Predicting labels using SVC...
 Done!
-Prediction time (usec): 549
+Prediction time (usec): 587
 F1 score for test set: 0.79746835443
 </pre>
 </div>
@@ -1103,7 +1103,7 @@ F1 score for test set: 0.79746835443
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
@@ -1132,42 +1132,42 @@ Training set size: 300
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 1621
+Training time (usec): 1640
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 386
+Prediction time (usec): 461
 F1 score for training set: 0.811188811189
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 277
+Prediction time (usec): 283
 F1 score for test set: 0.773722627737
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 630
+Training time (usec): 688
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 296
+Prediction time (usec): 302
 F1 score for training set: 0.822299651568
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 237
+Prediction time (usec): 247
 F1 score for test set: 0.743801652893
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training GaussianNB...
 Done!
-Training time (usec): 549
+Training time (usec): 572
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 242
+Prediction time (usec): 235
 F1 score for training set: 0.853333333333
 Predicting labels using GaussianNB...
 Done!
-Prediction time (usec): 241
+Prediction time (usec): 236
 F1 score for test set: 0.765625
 </pre>
 </div>
@@ -1179,7 +1179,7 @@ F1 score for test set: 0.765625
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
@@ -1208,42 +1208,42 @@ Training set size: 300
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 24731
+Training time (usec): 32712
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 1183
+Prediction time (usec): 1178
 F1 score for training set: 0.992555831266
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 993
+Prediction time (usec): 830
 F1 score for test set: 0.75
 ------------------------------------------
 Training set size: 200
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 20347
+Training time (usec): 21913
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 993
+Prediction time (usec): 1111
 F1 score for training set: 0.99649122807
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 830
+Prediction time (usec): 851
 F1 score for test set: 0.714285714286
 ------------------------------------------
 Training set size: 100
 Test set size: 95
 Training RandomForestClassifier...
 Done!
-Training time (usec): 21314
+Training time (usec): 21061
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 1042
+Prediction time (usec): 1629
 F1 score for training set: 1.0
 Predicting labels using RandomForestClassifier...
 Done!
-Prediction time (usec): 801
+Prediction time (usec): 22763
 F1 score for test set: 0.778523489933
 </pre>
 </div>
@@ -1307,12 +1307,12 @@ F1 score for test set: 0.778523489933
 <p>Comparing SVM with NB. There seems to be no significant gain in terms of F1 for using SVM over NB. However, the computational cost of SVM is about ~5x higher. Therefore I'd drop the SVM model.</p>
 <p>Comparing NB with DT. The computational costs are not that far apart. We don't know how many predictions will be made before the model is re-trained. If there's many, then the lower prediction time of the DT would be an advantage. In terms of F1 score the NB model is better, by about 3%. However, this is before grid search optimization. There are no parameters to optimize for NB. So this is the final F1 score for NB. For the DT model grid search should achieve better results. That is because DT models tend to overfit. Therefore I'm choosing DT with the expectation that grid search will at least achieve an F1 score on par with NB, if not better.</p>
 <p>Another reason supporting the choice of DT is its white box nature. This will allow for easy interpretation of results.</p>
-<h4 id="How-it-works:">How it works:<a class="anchor-link" href="#How-it-works:">&#182;</a></h4><p>To build a decision tree, ask a question about one of the features (attributes) and split the sample space according to the answer. For instance, one could ask about the feature failures. This feature describes the number of past class failures of a student. One could make the decision to split all students whether they did or did not have any past failures. That means the sample space (students) would be divided into all samples (students) that have 0 past failures and the rest. Then you could look at the group with 0 past failures and ask another question to further split that sample space. You can do this until there are no more opportunities to split the space even further, or when splitting no longer adds value to the predictions. Doing this, following a path and splitting further, will result in a tree structure. Hence the name decision tree.</p>
+<h4 id="How-it-works:">How it works:<a class="anchor-link" href="#How-it-works:">&#182;</a></h4><p>To build a decision tree, ask a question about one of the features (attributes) and split the sample space according to the answer. For instance, one could ask about the feature failures. This feature describes the number of past class failures of a student. One could make the decision to split all students whether they did or did not have any past failures. That means the sample space (students) would be divided into all samples (students) that have 0 past failures and the rest. Then you could look at the group with 0 past failures and ask another question to further split that sample space. You can do this repeatedly for every path until there are no more opportunities to split the space even further, or when splitting no longer adds value to the predictions. Doing this, following every path and splitting further, will result in a tree structure. Hence the name decision tree.</p>
 <p>An important question here is on what attribute and value of that attribute should you split to achieve the best result. The answer is that you want to split on an attribute/value pair that splits the space in half, or as close to half as you can get. That means an algorithm would look at different attribute/value pairs to make the best possible decision at each node of the tree.</p>
 <p>In tech speak*:</p>
-<blockquote><p>A tree can be learned by splitting the source set into subsets based on a feature value test, e.g information gain. This process is repeated on each derived subset in a recursive manner. The recursion is completed when the subset at a node has all the same value of the target variable, or when splitting no longer adds value to the predictions. This process of top-down induction of decision trees is an example of a greedy algorithm, and it is by far the most common strategy for learning decision trees from data.*</p>
+<blockquote><p>A tree can be learned by splitting the source set into subsets based on a feature value test. This process is repeated on each derived subset in a recursive manner. The recursion is completed when the subset at a node has all the same value of the target variable, or when splitting no longer adds value to the predictions. This process of top-down induction of decision trees is an example of a greedy algorithm, and it is by far the most common strategy for learning decision trees from data.*</p>
 </blockquote>
-<p>* mostly Wikipedia</p>
+<p>* Wikipedia</p>
 <h4 id="Tuning-Results:">Tuning Results:<a class="anchor-link" href="#Tuning-Results:">&#182;</a></h4><p>Final results from DT grid search:</p>
 <p><em>F1 score for test set: 0.8143</em></p>
 <p><em>Best params: {'criterion': 'entropy', 'max_depth': 5}</em></p>
@@ -1324,7 +1324,7 @@ F1 score for test set: 0.778523489933
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Fine-tune your model and report the best F1 score</span>
@@ -1380,21 +1380,21 @@ F1 score for test set: 0.778523489933
 <pre>Grid search SVC ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 1415
+Prediction time (usec): 1363
 F1 score for test set: 0.818791946309
 Best params: {&apos;kernel&apos;: &apos;rbf&apos;, &apos;C&apos;: 10, &apos;gamma&apos;: 0.001}
 
 Grid search Decision Tree ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 212
+Prediction time (usec): 308
 F1 score for test set: 0.814285714286
 Best params: {&apos;criterion&apos;: &apos;entropy&apos;, &apos;max_depth&apos;: 5}
 
 Grid search Random Forest ...
 Predicting labels using GridSearchCV...
 Done!
-Prediction time (usec): 1057
+Prediction time (usec): 1120
 F1 score for test set: 0.755244755245
 Best params: {&apos;max_features&apos;: 5, &apos;n_estimators&apos;: 11}
 </pre>
