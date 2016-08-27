@@ -53,7 +53,7 @@ def cluster_results(reduced_data, preds, centers, pca_samples):
 
 	# Color map
 	cmap = cm.get_cmap('gist_rainbow')
-
+    
 	# Color the points based on assigned cluster
 	for i, cluster in plot_data.groupby('Cluster'):   
 	    cluster.plot(ax = ax, kind = 'scatter', x = 'Dimension 1', y = 'Dimension 2', \
