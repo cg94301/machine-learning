@@ -1,5 +1,4 @@
 import random
-import statistics
 import numpy as np
 import pandas as pd
 from environment import Agent, Environment
@@ -19,7 +18,7 @@ class LearningAgent(Agent):
         self.gamma = 0.5
         self.epsilon = 1.0
         self.floor = 0.05
-        self.log = False
+        self.log = True
 
         self.qinit = {'wait': .0, 'forward': .0, 'left': .0, 'right': .0}
         self.qdf = pd.DataFrame()
